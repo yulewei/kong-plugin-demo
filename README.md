@@ -21,7 +21,7 @@ $ luarocks show kong-plugin-demo
 lua_package_path = /home/yulewei/kong-plugin-demo/?.lua;;
 ```
 
-安装或者修改路径完成后，再修改 `kong.conf` 配置文件的 `plugins` 配置项，让 Kong 加载这个插件：
+安装或者修改路径完成后，再修改 `kong.conf` 配置文件的 `plugins` 配置项，让 Kong 加载这个插件 `demo`：
 
 ```
 plugins = bundled,demo
@@ -58,7 +58,7 @@ HTTP/1.1 200 OK
 Via: kong/1.5.1
 ```
 
-现在在 `example.service` 这个 `service` 开启 demo 插件：
+现在在 `example.service` 这个 `service` 开启 `demo` 插件：
 
 ``` bash
 # 在 service 上开启 demo 插件
