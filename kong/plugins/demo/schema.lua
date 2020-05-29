@@ -9,7 +9,7 @@ return {
         response_header = {
             type = "string",
             required = true,
-            default = "X-Response-Text"
+            default = "X-Response-Decoded"
         }
     }
 }
