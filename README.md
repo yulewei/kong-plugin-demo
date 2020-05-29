@@ -15,17 +15,25 @@ $ sudo luarocks make
 $ luarocks show kong-plugin-demo
 ```
 
-或者，不通过 LuaRocks 安装，直接把这个插件添加到 `lua_package_path` 路径中。示例如下：
+或者，不通过 LuaRocks 安装，修改 `kong.conf`，把这个插件添加到 `lua_package_path` 路径中。示例如下：
 
 ```
 lua_package_path = /home/yulewei/kong-plugin-demo/?.lua;;
 ```
 
-然后，在 `kong.conf` 配置文件添加这个插件 `demo`：
+安装或者修改路径完成后，修改 `kong.conf` 配置文件的 `plugins` 配置项，让 Kong 加载添加这个插件：
 
 ```
 plugins = bundled,demo
 ```
+
+重启 Kong，`kong restart`。如果启动正常，就能通过 Admin API 查看到这个被加载到的插件：
+
+```
+$ curl -s http://localhost:8001/plugins/enabled | grep demo
+```
+
+现在来试下开启这个插件。
 
 通过调用 Kong 提供的 Admin API，让 Kong 创建了名为 `example.service` 的 `service`，`service` 指向的上游服务是 `http://httpbin.org`。然后，在 `example.service` 上添加 `route`，规则是让请求路径前缀为 `/` 的请求全部转发到这个 `service`。
 
