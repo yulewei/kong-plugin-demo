@@ -2,7 +2,7 @@
 
 一个简单的 Kong 插件示例，插件执行的逻辑是，读取 `X-Request-Base64` 请求 header 的字符串参数，然后对这个字符串执行 base64 解码，解码结果通过 header `X-Response-Decoded` 返回。
 
-安装这个插件，参见 Kong [官方文档](https://docs.konghq.com/1.5.x/plugin-development/distribution/)。
+安装这个插件，可以参考 Kong [官方文档](https://docs.konghq.com/1.5.x/plugin-development/distribution/)，支持两种方式。
 
 可以使用 LuaRocks 安装这个插件：
 
