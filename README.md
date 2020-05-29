@@ -1,7 +1,5 @@
 # kong-plugin-demo
 
-参考自：<https://github.com/Kong/kong-plugin>
-
 ``` bash
 # 添加 service
 $ curl -XPOST -H 'Content-Type: application/json' \
@@ -84,3 +82,8 @@ Via: kong/0.14.1
   }
 }
 ```
+
+**参考：**
+
+- Plugin Development <https://docs.konghq.com/1.5.x/plugin-development/>
+- Kong plugin template <https://github.com/Kong/kong-plugin>
