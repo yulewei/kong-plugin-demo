@@ -45,6 +45,7 @@ function DemoHandler:header_filter(conf)
     DemoHandler.super.header_filter(self)
 
     kong.log("saying hi from the 'header_filter' handler")
+
     local base64_str = kong.request.get_header(conf.request_header)
     if base64_str ~= nil then
         local decoded_str = ngx.decode_base64(base64_str)
