@@ -1,10 +1,10 @@
 package = "kong-plugin-demo"
 version = "0.1.0-1"
 source = {
-   url = "https://github.com/yelewei/kong-plugin-demo"
+   url = "https://github.com/yulewei/kong-plugin-demo"
 }
 description = {
-   homepage = "https://github.com/yelewei/kong-plugin-demo",
+   homepage = "https://github.com/yulewei/kong-plugin-demo",
    license = "MIT"
 }
 dependencies = {
