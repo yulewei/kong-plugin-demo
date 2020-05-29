@@ -68,7 +68,7 @@ $ curl -XPOST --data "name=demo" \
 $ curl -i -H 'X-Request-Base64: aGVsbG8ga29uZw==' http://localhost:8000/headers
 HTTP/1.1 200 OK
 ... 省略 ...
-X-Response-Text: hello kong
+X-Response-Decoded: hello kong
 X-Kong-Upstream-Latency: 1387
 X-Kong-Proxy-Latency: 37
 Via: kong/0.14.1
