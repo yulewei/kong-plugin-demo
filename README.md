@@ -21,7 +21,7 @@ $ luarocks show kong-plugin-demo
 lua_package_path = /home/yulewei/kong-plugin-demo/?.lua;;
 ```
 
-安装或者修改路径完成后，修改 `kong.conf` 配置文件的 `plugins` 配置项，让 Kong 加载添加这个插件：
+安装或者修改路径完成后，修改 `kong.conf` 配置文件的 `plugins` 配置项，让 Kong 加载这个插件：
 
 ```
 plugins = bundled,demo
@@ -33,7 +33,7 @@ plugins = bundled,demo
 $ curl -s http://localhost:8001/plugins/enabled | grep demo
 ```
 
-现在来试下开启这个插件。
+上面让 Kong 加载到这个插件，但还没有开启，没有真正执行。现在来试下开启这个插件。
 
 通过调用 Kong 提供的 Admin API，让 Kong 创建了名为 `example.service` 的 `service`，`service` 指向的上游服务是 `http://httpbin.org`。然后，在 `example.service` 上添加 `route`，规则是让请求路径前缀为 `/` 的请求全部转发到这个 `service`。
 
@@ -55,6 +55,7 @@ $ curl -XPOST -H 'Content-Type: application/json' \
 $ curl -i http://localhost:8000/status/200
 HTTP/1.1 200 OK
 ...
+Via: kong/1.5.1
 ```
 
 现在在 `example.service` 这个 `service` 开启 demo 插件：
@@ -73,7 +74,10 @@ HTTP/1.1 200 OK
 ...
 X-Response-Decoded: hello kong
 ...
+Via: kong/1.5.1
 ```
+
+可以看到，请求头的 `aGVsbG8ga29uZw==`，被成功解码为 `hello kong`。
 
 **参考：**
 
