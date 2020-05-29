@@ -38,7 +38,6 @@ function DemoHandler:access(conf)
     DemoHandler.super.access(self)
 
     kong.log("saying hi from the 'access' handler")
-    self.echo_string = kong.request.get_header(conf.request_header)
 end
 
 -- 在 'header_filter_by_lua_block' 中运行
@@ -46,9 +45,10 @@ function DemoHandler:header_filter(conf)
     DemoHandler.super.header_filter(self)
 
     kong.log("saying hi from the 'header_filter' handler")
-
-    if self.echo_string ~= nil then
-        kong.response.set_header(conf.response_header, self.echo_string)
+    local base64_str = kong.request.get_header(conf.request_header)
+    if base64_str ~= nil then
+        local decoded_str = ngx.decode_base64(base64_str)
+        kong.response.set_header(conf.response_header, decoded_str)
     end
 end
 

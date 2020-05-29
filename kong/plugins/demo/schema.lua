@@ -4,12 +4,12 @@ return {
         request_header = {
             type = "string",
             required = true,
-            default = "X-Request-Echo"
+            default = "X-Request-Base64"
         },
         response_header = {
             type = "string",
             required = true,
-            default = "X-Response-Echo"
+            default = "X-Response-Text"
         }
     }
 }
