@@ -1,6 +1,6 @@
 # kong-plugin-demo
 
-一个简单的 Kong 插件示例，插件执行的逻辑是，读取 `X-Request-Base64` 请求 header 的字符串参数，然后对这个字符串执行 base64 解码，解码结果通过 header `X-Response-Decoded` 返回。
+一个简单的 Kong 自定义插件示例，插件执行的逻辑是，读取 `X-Request-Base64` 请求 header 的字符串参数，然后对这个字符串执行 base64 解码，解码结果通过 header `X-Response-Decoded` 返回。
 
 安装这个插件，可以参考 Kong [官方文档](https://docs.konghq.com/1.5.x/plugin-development/distribution/)，支持两种方式。
 
@@ -27,7 +27,7 @@ lua_package_path = /home/yulewei/kong-plugin-demo/?.lua;;
 plugins = bundled,demo
 ```
 
-重启 Kong，`kong restart`。如果启动正常，就能通过 Admin API 查看到这个被加载到的插件：
+重启 Kong，执行 `kong restart` 或者 `kong prepare && kong reload`。如果启动正常，就能通过 Admin API 查看到这个被加载到的插件：
 
 ```
 $ curl -s http://localhost:8001/plugins/enabled | grep demo
