@@ -81,5 +81,6 @@ Via: kong/1.5.1
 
 **参考：**
 
+- 2020-05 微服务 API 网关 Kong 实践 <https://nullwy.me/2020/05/kong-gateway/>
 - Plugin Development <https://docs.konghq.com/1.5.x/plugin-development/>
 - Kong plugin template <https://github.com/Kong/kong-plugin>
